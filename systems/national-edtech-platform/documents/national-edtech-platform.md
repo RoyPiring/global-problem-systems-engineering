@@ -1,11 +1,3 @@
----
-nextwork_uuid: 20b03138-04b4-4943-a367-1034a8c6c5a1
-original_filename: legendary-20b03138-04b4-4943-a367-1034a8c6c5a1.md
-migrated_to: global-problem-systems-engineering/national-edtech-platform.md
-migrated_at: 2026-05-04
-schema: nextwork-generator
----
-
 <img src="https://cdn.prod.website-files.com/677c400686e724409a5a7409/6790ad949cf622dc8dcd9fe4_nextwork-logo-leather.svg" alt="NextWork" width="300" />
 
 # Build a National EdTech Platform
