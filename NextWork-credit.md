@@ -4,6 +4,7 @@ This portfolio repository was built from NextWork projects, created via NextWork
 
 **Original NextWork projects:**
 
+- Cryptographic Supply Chain Tracker
 - Build a National EdTech Platform
 
 ## About NextWork
