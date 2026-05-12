@@ -4,9 +4,9 @@
 
 ## Overview
 
--T-h-i-s- -p-r-o-j-e-c-t- -b-u-i-l-d-s- -a- -s-e-r-v-e-r-l-e-s-s- -s-u-p-p-l-y- -c-h-a-i-n- -t-r-a-c-k-i-n-g- -s-y-s-t-e-m- -t-h-a-t- -c-r-y-p-t-o-g-r-a-p-h-i-c-a-l-l-y- -s-i-g-n-s- -e-v-e-r-y- -h-a-n-d-o-f-f- -b-e-t-w-e-e-n- -p-a-r-t-i-e-s- -t-o- -c-r-e-a-t-e- -v-e-r-i-f-i-a-b-l-e- -p-r-o-o-f- -o-f- -c-u-s-t-o-d-y- -a-c-r-o-s-s- -t-h-e- -f-u-l-l- -l-i-f-e-c-y-c-l-e- -o-f- -a- -p-r-o-d-u-c-t-.-
--
--T-h-e- -s-y-s-t-e-m- -a-d-d-r-e-s-s-e-s- -a- -c-o-r-e- -w-e-a-k-n-e-s-s- -i-n- -m-o-d-e-r-n- -s-u-p-p-l-y- -c-h-a-i-n-s-:- -t-h-e- -i-n-a-b-i-l-i-t-y- -t-o- -p-r-o-v-e- -w-h-a-t- -a-c-t-u-a-l-l-y- -h-a-p-p-e-n-e-d- -b-e-t-w-e-e-n- -o-r-g-a-n-i-z-a-t-i-o-n-s- -d-u-r-i-n-g- -t-r-a-n-s-i-t-.- -T-r-a-d-i-t-i-o-n-a-l- -t-r-a-c-k-i-n-g- -s-y-s-t-e-m-s- -r-e-c-o-r-d- -e-v-e-n-t-s-,- -b-u-t- -t-h-e-y- -d-o- -n-o-t- -g-u-a-r-a-n-t-e-e- -i-n-t-e-g-r-i-t-y- -o-r- -a-u-t-h-e-n-t-i-c-i-t-y-.- -T-h-i-s- -c-r-e-a-t-e-s- -g-a-p-s- -w-h-e-r-e- -t-i-m-e-s-t-a-m-p-s- -c-a-n- -b-e- -a-l-t-e-r-e-d-,- -c-u-s-t-o-d-y- -r-e-c-o-r-d-s- -s-k-i-p-p-e-d-,- -o-r- -p-r-o-d-u-c-t-s- -s-u-b-s-t-i-t-u-t-e-d- -w-i-t-h-o-u-t- -r-e-l-i-a-b-l-e- -d-e-t-e-c-t-i-o-n-.- -T-h-e- -a-r-c-h-i-t-e-c-t-u-r-e- -i-s- -m-o-d-e-l-e-d- -a-r-o-u-n-d- -r-e-a-l---w-o-r-l-d- -f-a-i-l-u-r-e-s- -s-u-c-h- -a-s- -t-h-e- -2-0-2-5- -c-o-n-t-a-m-i-n-a-t-e-d- -i-n-f-a-n-t- -f-o-r-m-u-l-a- -i-n-c-i-d-e-n-t-,- -w-h-e-r-e- -m-i-s-s-i-n-g- -o-r- -u-n-v-e-r-i-f-i-a-b-l-e- -h-a-n-d-o-f-f- -r-e-c-o-r-d-s- -c-r-e-a-t-e-d- -u-n-c-e-r-t-a-i-n-t-y- -a-r-o
+This project builds a serverless supply chain tracking system that cryptographically signs every handoff between parties to create verifiable proof of custody across the full lifecycle of a product.
+
+The system addresses a core weakness in modern supply chains: the inability to prove what actually happened between organizations during transit. Traditional tracking systems record events, but they do not guarantee integrity or authenticity. This creates gaps where timestamps can be altered, custody records skipped, or products substituted without reliable detection. The architecture is modeled around real-world failures such as the 2025 contaminated infant formula incident, where missing or unverifiable handoff records created uncertainty around where the breakdown occurred.
 
 The architecture is built across **11 phases**, anchored by **The Crisis This System Was Built to Solve** on the input side and **💎 Secret Mission: SLSA L1 Compliance Dashboard** at the end. Each phase is listed in the Implementation section below.
 
@@ -127,7 +127,7 @@ This system is built across **11 phases**:
 8. **Building the Public Audit API with Agent 5**
 9. **Generating Leadership Effectiveness Artifacts**
 10. **Running 4 Crisis-Inspired End-to-End Scenarios**
-11. **💎 Secret Mission: SLSA L1 Compliance Dashboard**, -.
+11. **💎 Secret Mission: SLSA L1 Compliance Dashboard**
 
 For the full walkthrough with screenshots and step-by-step content, see [`documents/cryptographic-supply-chain-tracker.md`](./documents/cryptographic-supply-chain-tracker.md).
 
