@@ -1,0 +1,48 @@
+lens: global-problem-systems-engineering
+featured_enabled: auto
+threshold: 1
+scored_at: '2026-05-18'
+human_pin: []
+systems:
+- slug: cryptographic-supply-chain-tracker
+  axis_scores:
+    technical_depth: 9
+    voice: 8
+    validation: 8
+  axis_reasoning:
+    technical_depth: 11-phase serverless build with KMS ECDSA signing, canonical JSON
+      serialization, independent anomaly detector, SLSA L1 in-toto attestations, and
+      a diagram that names concrete components (EmitterFunction, OrderGate, ADR-001..003)
+      with real edges across write, detect, and audit paths.
+    voice: Direct and specific writing that names trade-offs like HTTP 400 vs 422
+      status semantics and grounds the project in the 2025 contaminated infant formula
+      incident; minimal filler though a few transition sentences soften the prose.
+    validation: Ten phases ticked off with screenshots, four crisis-inspired end-to-end
+      scenarios run through the deployed stack, and an honest scope note that KMS
+      signature verification falls outside local pytest coverage; strongest evidence
+      sits in the skip-shipper and tamper-timestamp scenarios.
+  average: 8.3
+  rationale: ECDSA-signed custody chain with independent anomaly detector and SLSA
+    L1 in-toto attestations
+  featured: true
+- slug: national-edtech-platform
+  axis_scores:
+    technical_depth: 7
+    voice: 7
+    validation: 7
+  axis_reasoning:
+    technical_depth: Nine-phase DIKSHA-modeled platform orchestrating 15 Docker containers
+      with Keycloak OIDC SSO, NGINX edge caching, Jitsi live classrooms, and a Prometheus
+      and Grafana telemetry stack; diagram names real services and subgraphs but has
+      minor artifacts like a duplicated classDef line.
+    voice: On-brand and specific in places (X-Cache-Status MISS observation, Docker
+      DNS hostname guidance, dedicated realm rationale); a few sections repeat the
+      'Step goals and approach' framing which flattens the writing.
+    validation: Each of nine phases is ticked with screenshots and stress-tested telemetry
+      shows live metric movement; honest scorecard names missing centralized logging,
+      tracing, and alerting, with strongest evidence in the observability and X-Cache-Status
+      benchmarking phases.
+  average: 7.0
+  rationale: 15-container federated LMS with Keycloak SSO, HLS streaming, and live
+    Prometheus telemetry
+  featured: true

@@ -1,6 +1,6 @@
 # Global Problem Systems Engineering
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-1B4332?style=flat-square&labelColor=0d1117)](./LICENSE) [![Systems](https://img.shields.io/badge/systems-2-2F5233?style=flat-square&labelColor=0d1117)](./INDEX.md) [![Updated](https://img.shields.io/badge/updated-2026--05--15-264653?style=flat-square&labelColor=0d1117)](./INDEX.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-1B4332?style=flat-square&labelColor=0d1117)](./LICENSE) [![Systems](https://img.shields.io/badge/systems-2-2F5233?style=flat-square&labelColor=0d1117)](./INDEX.md) [![Updated](https://img.shields.io/badge/updated-2026--05--18-264653?style=flat-square&labelColor=0d1117)](./INDEX.md)
 
 > *What scales to population-level impact?*
 
@@ -21,9 +21,10 @@ Software, cloud, and AI engineering applied to population-scale civic and public
 
 **What it isn't.** A claim of population-level deployment. A substitute for public-sector partnerships.
 
-## Systems
+## Featured Systems
 
-- **[Build a National EdTech Platform](./systems/national-edtech-platform/)**, EdTech · Docker · NGINX · SSO
-- **[Cryptographic Supply Chain Tracker](./systems/cryptographic-supply-chain-tracker/)**, DevSecOps · AWS · KMS · API
+- **[Cryptographic Supply Chain Tracker](./systems/cryptographic-supply-chain-tracker/)**: ECDSA-signed custody chain with independent anomaly detector and SLSA L1 in-toto attestations
+- **[Build a National EdTech Platform](./systems/national-edtech-platform/)**: 15-container federated LMS with Keycloak SSO, HLS streaming, and live Prometheus telemetry
+
 
 
