@@ -99,7 +99,7 @@ A Moodle course is created and a Jitsi session is embedded as a live classroom a
 
 Embedding Jitsi inside Moodle maintains context and control.
 
-Sessions are tied directly to course enrollment, ensuring only authorized users can join. Identity and roles are carried into the session, improving moderation and participant tracking. Users remain within the LMS interface, eliminating the need to switch tools or manage external links.
+Sessions are tied directly to course enrollment, ensuring only authorized users can join. Identity and roles are carried into the session, sharpening moderation and participant tracking. Users remain within the LMS interface, eliminating the need to switch tools or manage external links.
 
 ![Image](https://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/20b03138-04b4-4943-a367-1034a8c6c5a1_op5nk7dd)
 
@@ -123,7 +123,7 @@ CPU metrics show processing load per container, memory metrics reveal working se
 
 ### Step goals and approach
 
-Edge caching is introduced to reduce backend load and improve response times.
+Edge caching is introduced to reduce backend load and lift response times.
 
 NGINX is configured to cache static assets and video streams, allowing frequently requested content to be served directly from cache. Validation tests are executed to measure performance, accessibility, and system health, producing a benchmark for platform behavior.
 

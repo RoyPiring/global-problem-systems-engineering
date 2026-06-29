@@ -39,7 +39,7 @@ It defines ownership boundaries for infrastructure, security, quality, platform 
 
 Each agent operates within a dedicated domain. Infrastructure controls deployment templates and configuration files, Security manages cryptographic services and rotation procedures, Quality owns anomaly testing, Platform governs APIs and audit interfaces, and Chain manages event creation and simulation logic.
 
-This separation reduces merge conflicts, improves traceability, and models how responsibilities are divided in production engineering organizations.
+This separation reduces merge conflicts, sharpens traceability, and models how responsibilities are divided in production engineering organizations.
 
 ![Image](https://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/efd78660-3d95-4d31-9398-cc12c15f2a36_p9thb4d5)
 
@@ -91,7 +91,7 @@ The architecture is divided into four focused execution services.
 
 EmitterFunction creates and stores chain events, SignerVerifierFunction handles cryptographic operations, AnomalyDetectorFunction validates chain integrity against detection rules, and AuditApiFunction exposes verification results externally through HTTP endpoints.
 
-Separating responsibilities across functions improves scalability, isolates failures, and keeps security boundaries narrow. Each function operates independently but contributes to a shared verification pipeline.
+Separating responsibilities across functions sharpens scalability, isolates failures, and keeps security boundaries narrow. Each function operates independently but contributes to a shared verification pipeline.
 
 ## Simulating the 3-Party Supply Chain with Agent 2
 
@@ -135,7 +135,7 @@ This phase introduces cryptographic trust into the system.
 
 Agent 3 develops the signing and verification layer using AWS KMS-backed ECDSA signatures. Every supply chain event is hashed, signed, and stored with a corresponding cryptographic signature. Verification functions later recompute the hash and validate that the stored signature matches the event payload exactly.
 
-Retry logic and structured logging are added to improve operational reliability and auditability. A key rotation runbook is also created to standardize how signing keys are replaced without disrupting the integrity chain.
+Retry logic and structured logging are added to strengthen operational reliability and auditability. A key rotation runbook is also created to standardize how signing keys are replaced without disrupting the integrity chain.
 
 This transforms the platform from a basic event tracker into a cryptographically verifiable ledger.
 
@@ -215,7 +215,7 @@ HTTP 400 is reserved for invalid requests, such as malformed parameters or missi
 
 This distinction is important because a corrupted chain is not the same as an invalid API call. The request succeeds technically, but the underlying resource violates business and compliance rules.
 
-Using semantic status codes improves operational clarity and makes integrations easier to debug because consumers can distinguish between client-side errors and integrity violations within the supply chain itself.
+Using semantic status codes sharpens operational clarity and makes integrations easier to debug because consumers can distinguish between client-side errors and integrity violations within the supply chain itself.
 
 ## Generating Leadership Effectiveness Artifacts
 
