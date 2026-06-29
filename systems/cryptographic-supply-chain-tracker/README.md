@@ -104,7 +104,6 @@ flowchart TD
     KMS -. "logs operations" .-> CloudTrail
     Signer -. "writes evidence" .-> S3Audit
     CloudTrail -. "preserves trail" .-> S3Audit
-
     class Cursorrules,SAM,IAM,Rotation,ADR1,ADR2,ADR3,KMS,Ledger,S3Audit,CloudTrail datastore
     class Emitter,Canonicalize,Signer,Detector,AuditApi,Gateway service
     class OrderGate,Rule1,Rule2,Rule3 event
@@ -133,7 +132,7 @@ For the full walkthrough with screenshots and step-by-step content, see [`docume
 
 ## Validation
 
-Build outcomes verified end-to-end. Each phase below is captured with screenshots, configuration, and observable behavior in [`documents/cryptographic-supply-chain-tracker.md`](./documents/cryptographic-supply-chain-tracker.md):
+Each build phase below is documented in [`documents/cryptographic-supply-chain-tracker.md`](./documents/cryptographic-supply-chain-tracker.md), with screenshots, configuration, and notes as captured during the build:
 
 - ✅ The Crisis This System Was Built to Solve
 - ✅ Setting Up the DevSecOps Environment

@@ -80,9 +80,6 @@ flowchart LR
     Prometheus -->|writes samples| MetricsDB
     MetricsDB -->|queries dashboards| Grafana
     Admins -->|monitors| Grafana
-class MetricsDB datastore
-class Students,Teachers,Admins io
-
     class MetricsDB datastore
     class NGINX,Keycloak,Moodle,MediaCMS,Jitsi,Jicofo,Prometheus,cAdvisor,Grafana service
     class Students,Teachers,Admins io
@@ -108,7 +105,7 @@ For the full walkthrough with screenshots and step-by-step content, see [`docume
 
 ## Validation
 
-Build outcomes verified end-to-end. Each phase below is captured with screenshots, configuration, and observable behavior in [`documents/national-edtech-platform.md`](./documents/national-edtech-platform.md):
+Each build phase below is documented in [`documents/national-edtech-platform.md`](./documents/national-edtech-platform.md), with screenshots, configuration, and notes as captured during the build:
 
 - ✅ Setting Up the Environment and Scaffolding the Platform
 - ✅ Orchestrating 15 Containers with Docker Compose and NGINX
