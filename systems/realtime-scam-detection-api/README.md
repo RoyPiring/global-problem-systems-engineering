@@ -25,9 +25,6 @@ flowchart LR
     classDef event fill:#7B42BC,stroke:#F4D03F,stroke-width:2px,color:#FFFFFF
     classDef io fill:#0d1117,stroke:#F4D03F,stroke-width:1.5px,color:#F4D03F,font-style:italic
 
-
-
-
     subgraph Env["Environment and Credentials"]
         Py311(["Python 3.11 runtime"])
         TF(["Terraform CLI"])
@@ -164,7 +161,6 @@ flowchart LR
     ModelCard -- "documents" --> Heuristic
     EvalReport -- "impact metrics" --> Slides
     Projections -- "cost and revenue curve" --> Slides
-
     Runbook -- "operating path for" --> CloudFn
 
     Gate -- "all three conditions true" --> CaseFile
