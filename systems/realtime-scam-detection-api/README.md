@@ -4,13 +4,13 @@
 
 ## Overview
 
-In this build, I built PhishGuard, a serverless real-time scam detection API deployed on Google Cloud Functions. The system fetched and scored suspect URLs against live threat intelligence feeds from PhishTank and URLhaus, then used a heuristic classifier to return structured verdicts in near real time.
+This project builds PhishGuard, a serverless real-time scam detection API deployed on Google Cloud Functions. The system fetched and scored suspect URLs against live threat intelligence feeds from PhishTank and URLhaus, then used a heuristic classifier to return structured verdicts in near real time.
 
 The design mattered because phishing and malware distribution move fast. PhishGuard gave users a low-cost, sub-second defense path that could check a URL before a bad link caused damage.
 
 The human cost was the reason for the build. Fraud losses reached $15.9 billion in 2025, so the system focused on fast detection, clear verdicts, and a practical way to reduce exposure before scams reached the user.
 
-The architecture is built across **7 phases**, anchored by **Stopping a $16 Billion Scam Machine** on the input side and **Takedown Case Routing** at the end. Each phase is listed in the Implementation section below.
+The architecture is built across **7 phases**, anchored by **Stopping a $16 Billion Scam Machine** on the input side and **Secret Mission: Takedown Case Routing** at the end. Each phase is listed in the Implementation section below.
 
 ## Architecture
 
@@ -41,6 +41,7 @@ flowchart LR
         ADR[/"ADR: GCP over AWS, 2M free invocations, no gateway fee"/]
         C4[/"C4 views: Context, Container, Component"/]
         Pricing[/"$1 per user pricing model"/]
+        OpenApi[/"OpenAPI contract + SLIs"/]
     end
 
     subgraph Agents["Three Parallel Build Agents"]
@@ -88,6 +89,7 @@ flowchart LR
         ModelCard[/"scorer model card"/]
         Projections[/"user-scale projections: 100 to 1M"/]
         Slides[/"5-slide stakeholder presentation"/]
+        Runbook[/"operational runbook"/]
     end
 
     subgraph Risks["Threat Model Risks"]
@@ -113,6 +115,8 @@ flowchart LR
     ADR -- "cloud and pattern decisions" --> InfraAgent
     ADR -- "fast-path plus gateway pattern" --> ServiceAgent
     C4 -- "component boundaries" --> ServiceAgent
+    OpenApi -- "contract for" --> DetectEP
+    OpenApi -- "SLIs feed" --> SLOs
 
     InfraAgent -- "authors" --> TFConfig
     ServiceAgent -- "builds" --> DetectEP
@@ -161,6 +165,8 @@ flowchart LR
     EvalReport -- "impact metrics" --> Slides
     Projections -- "cost and revenue curve" --> Slides
 
+    Runbook -- "operating path for" --> CloudFn
+
     Gate -- "all three conditions true" --> CaseFile
     CaseFile -- "queued as" --> Pending
     Pending -- "reviewed via" --> ApproveEP
@@ -170,7 +176,7 @@ flowchart LR
     class EnvFile,RepoDirs,FeedBucket,Dataset,CaseFile,Pending datastore
     class Py311,TF,Gcloud,InfraAgent,ServiceAgent,EvalAgent,CloudFn,DetectEP,FastPath,Gateway,Heuristic,Formatter,ScoreScript,LatencyScript,ApproveEP service
     class Scheduler,Gate,Dispatch event
-    class GitIgnore,ADR,C4,Pricing,TFConfig,PhishTank,URLhaus,SLOs,Results,P95,EvalReport,LatencyReport,ThreatModel,ModelCard,Projections,Slides,FalsePos,FeedOutage,Drift,Evasion,Operator io
+    class GitIgnore,ADR,C4,Pricing,OpenApi,TFConfig,PhishTank,URLhaus,SLOs,Results,P95,EvalReport,LatencyReport,ThreatModel,ModelCard,Projections,Slides,Runbook,FalsePos,FeedOutage,Drift,Evasion,Operator io
 ```
 
 The diagram shows the topology and data flow of the system as built. The full architectural narrative, with screenshots and prose, lives in [`documents/realtime-scam-detection-api.md`](./documents/realtime-scam-detection-api.md).
@@ -185,7 +191,7 @@ This system is built across **7 phases**:
 4. **Building the Detection Service with Multi-Agent Parallelization**
 5. **Deploying to GCP and Validating Against SLOs**
 6. **Post-Artifacts and Stakeholder Presentation**
-7. **Takedown Case Routing**
+7. **Secret Mission: Takedown Case Routing**
 
 For the full walkthrough with screenshots and step-by-step content, see [`documents/realtime-scam-detection-api.md`](./documents/realtime-scam-detection-api.md).
 
@@ -199,4 +205,4 @@ Each build phase below is documented in [`documents/realtime-scam-detection-api.
 - ✅ Building the Detection Service with Multi-Agent Parallelization
 - ✅ Deploying to GCP and Validating Against SLOs
 - ✅ Post-Artifacts and Stakeholder Presentation
-- ✅ Takedown Case Routing
+- ✅ Secret Mission: Takedown Case Routing

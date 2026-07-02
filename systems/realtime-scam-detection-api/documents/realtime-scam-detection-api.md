@@ -15,7 +15,7 @@
 
 ### The problem, the pattern, and the human cost
 
-In this build, I built PhishGuard, a serverless real-time scam detection API deployed on Google Cloud Functions. The system fetched and scored suspect URLs against live threat intelligence feeds from PhishTank and URLhaus, then used a heuristic classifier to return structured verdicts in near real time.
+This project builds PhishGuard, a serverless real-time scam detection API deployed on Google Cloud Functions. The system fetched and scored suspect URLs against live threat intelligence feeds from PhishTank and URLhaus, then used a heuristic classifier to return structured verdicts in near real time.
 
 The design mattered because phishing and malware distribution move fast. PhishGuard gave users a low-cost, sub-second defense path that could check a URL before a bad link caused damage.
 
