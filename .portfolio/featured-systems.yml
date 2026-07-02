@@ -1,7 +1,7 @@
 lens: global-problem-systems-engineering
 featured_enabled: auto
 threshold: 1
-scored_at: '2026-05-18'
+scored_at: '2026-07-02'
 human_pin: []
 systems:
 - slug: cryptographic-supply-chain-tracker
@@ -45,4 +45,25 @@ systems:
   average: 7.0
   rationale: 15-container federated LMS with Keycloak SSO, HLS streaming, and live
     Prometheus telemetry
+  featured: true
+- slug: realtime-scam-detection-api
+  axis_scores:
+    technical_depth: 8
+    voice: 8
+    validation: 8
+  axis_reasoning:
+    technical_depth: Fast-path feed lookup plus a swappable DetectionModel.score gateway
+      is production-shaped, and the diagram wires drift, evasion, and feed-outage
+      failure edges to real components, though the 90-minute build and 20-sample eval
+      keep it short of reference grade.
+    voice: Direct and decision-first, with the ADR naming GCP over AWS on concrete
+      invocation and gateway costs and a section stating what the system cannot do,
+      marred only by light repetition across the setup and design phases.
+    validation: Strongest in the deploy-and-validate phase, where a live run.app endpoint
+      yields precision 1.0, p95 137.62 ms, and an honestly named recall 0.6 miss against
+      the 0.8 SLO, though the small dataset and checklist-style README section cap
+      the chain.
+  average: 8.0
+  rationale: Feed-backed serverless URL detection, live SLO run naming the recall
+    miss, human-gated takedowns
   featured: true
