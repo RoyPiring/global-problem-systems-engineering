@@ -1,69 +1,89 @@
 lens: global-problem-systems-engineering
 featured_enabled: auto
 threshold: 1
-scored_at: '2026-07-02'
+scored_at: '2026-07-20'
 human_pin: []
 systems:
-- slug: cryptographic-supply-chain-tracker
+- slug: clinical-ai-gateway
   axis_scores:
     technical_depth: 9
-    voice: 8
-    validation: 8
+    voice: 9
+    validation: 9
   axis_reasoning:
-    technical_depth: 11-phase serverless build with KMS ECDSA signing, canonical JSON
-      serialization, independent anomaly detector, SLSA L1 in-toto attestations, and
-      a diagram that names concrete components (EmitterFunction, OrderGate, ADR-001..003)
-      with real edges across write, detect, and audit paths.
-    voice: Direct and specific writing that names trade-offs like HTTP 400 vs 422
-      status semantics and grounds the project in the 2025 contaminated infant formula
-      incident; minimal filler though a few transition sentences soften the prose.
-    validation: Ten phases ticked off with screenshots, four crisis-inspired end-to-end
-      scenarios run through the deployed stack, and an honest scope note that KMS
-      signature verification falls outside local pytest coverage; strongest evidence
-      sits in the skip-shipper and tamper-timestamp scenarios.
-  average: 8.3
-  rationale: ECDSA-signed custody chain with independent anomaly detector and SLSA
-    L1 in-toto attestations
+    technical_depth: Eight phases over a real routing topology (LiteLLM router, Ollama
+      local floor, Presidio redaction, cross-border region check, team budget fallback),
+      and the diagram names the actual failure edges including `unreachable:9999`,
+      one fallback hop, and budget exhaustion routing to local inference.
+    voice: First person and concrete throughout, and it states its own limit plainly
+      in `The route-back behavior requires valid cloud credentials`, which is the
+      opposite of filler.
+    validation: 'The offline-floor phase carries the strongest evidence: response
+      headers `x-litellm-model-api-base: http://ollama:11434` and `x-litellm-attempted-fallbacks:
+      1` with HTTP 200 under a forced connectivity cut, backed by five-bar drills
+      and a Grafana per-capita budget gauge.'
+  average: 9.0
+  rationale: Offline floor proven by response headers under a forced connectivity
+    cut
+  featured: true
+- slug: cryptographic-supply-chain-tracker
+  axis_scores:
+    technical_depth: 8
+    voice: 5
+    validation: 6
+  axis_reasoning:
+    technical_depth: 'Real cryptographic design across eleven phases: KMS-backed ECDSA
+      over canonical JSON, a DynamoDB ledger keyed by `chain_id` plus `ledger_key`,
+      an independent anomaly path, and a public audit API that separates HTTP 400
+      from HTTP 422 for integrity failures.'
+    voice: Third-person and repetitive, leaning on the same reframing sentence several
+      times (`transforms the platform from a basic event tracker into a cryptographically
+      verifiable ledger`), with no author present in the prose.
+    validation: The crisis-scenario phase is strongest with a concrete HTTP 400 on
+      the pharma skip-shipper run and a 14-item checklist, but signature verification
+      tests are explicitly partial and KMS end-to-end integration tests are deferred
+      to future work.
+  average: 6.3
+  rationale: KMS-signed custody chain with an ordering gate that rejects a skipped
+    handoff
   featured: true
 - slug: national-edtech-platform
   axis_scores:
-    technical_depth: 7
-    voice: 7
-    validation: 7
+    technical_depth: 6
+    voice: 5
+    validation: 5
   axis_reasoning:
-    technical_depth: Nine-phase DIKSHA-modeled platform orchestrating 15 Docker containers
-      with Keycloak OIDC SSO, NGINX edge caching, Jitsi live classrooms, and a Prometheus
-      and Grafana telemetry stack; diagram names real services and subgraphs but has
-      minor artifacts like a duplicated classDef line.
-    voice: On-brand and specific in places (X-Cache-Status MISS observation, Docker
-      DNS hostname guidance, dedicated realm rationale); a few sections repeat the
-      'Step goals and approach' framing which flattens the writing.
-    validation: Each of nine phases is ticked with screenshots and stress-tested telemetry
-      shows live metric movement; honest scorecard names missing centralized logging,
-      tracing, and alerting, with strongest evidence in the observability and X-Cache-Status
-      benchmarking phases.
-  average: 7.0
-  rationale: 15-container federated LMS with Keycloak SSO, HLS streaming, and live
-    Prometheus telemetry
+    technical_depth: Fifteen containers wired through NGINX with Keycloak OIDC federation
+      and a Prometheus/Grafana/cAdvisor path is a working integration, but the diagram
+      is a generic service map with no failure edges, stray blank lines, and an `Assessment
+      & Sessions` subgraph that actually holds Jicofo/JVB/XMPP.
+    voice: Passive and template-shaped (`Step goals and approach` repeated nine times),
+      with the author absent and sentences like `The platform is documented as a production-style
+      system` carrying little information.
+    validation: 'The caching phase is the most honest evidence, reporting repeated
+      `X-Cache-Status: MISS` and admitting the rules need tuning, and the DIKSHA evaluation
+      names gaps in logging, tracing, and alerting, but no phase carries measured
+      numbers or a benchmark figure.'
+  average: 5.3
+  rationale: Fifteen-container stack with a live metrics pipeline and an honest cache-miss
+    finding
   featured: true
 - slug: realtime-scam-detection-api
   axis_scores:
     technical_depth: 8
-    voice: 8
-    validation: 8
+    voice: 9
+    validation: 9
   axis_reasoning:
-    technical_depth: Fast-path feed lookup plus a swappable DetectionModel.score gateway
-      is production-shaped, and the diagram wires drift, evasion, and feed-outage
-      failure edges to real components, though the 90-minute build and 20-sample eval
-      keep it short of reference grade.
-    voice: Direct and decision-first, with the ADR naming GCP over AWS on concrete
-      invocation and gateway costs and a section stating what the system cannot do,
-      marred only by light repetition across the setup and design phases.
-    validation: Strongest in the deploy-and-validate phase, where a live run.app endpoint
-      yields precision 1.0, p95 137.62 ms, and an honestly named recall 0.6 miss against
-      the 0.8 SLO, though the small dataset and checklist-style README section cap
-      the chain.
-  average: 8.0
-  rationale: Feed-backed serverless URL detection, live SLO run naming the recall
-    miss, human-gated takedowns
+    technical_depth: Fast-path feed lookup plus a swappable `DetectionModel.score`
+      gateway is a clean seam for a later ML backend, and the ADR reasons from unit
+      cost (2M free GCP invocations versus API Gateway request fees), though the deployed
+      system is a single function rather than a multi-service stack.
+    voice: Direct and unusually candid, with a whole section titled around what the
+      system cannot do, naming user education, bank fraud controls, and law enforcement
+      as things it does not replace.
+    validation: 'The GCP deployment phase has the strongest evidence: measured against
+      live `.run.app` with precision 1.0, recall 0.6, F1 0.75 on 9 TP / 0 FP / 6 FN,
+      p95 137.62 ms over 10 requests, and the failed recall SLO is reported rather
+      than buried.'
+  average: 8.7
+  rationale: Live SLO validation that reports the recall miss instead of hiding it
   featured: true

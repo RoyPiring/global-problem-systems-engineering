@@ -1,6 +1,6 @@
 # Global Problem Systems Engineering
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-1B4332?style=flat-square&labelColor=0d1117)](./LICENSE) [![Systems](https://img.shields.io/badge/systems-3-2F5233?style=flat-square&labelColor=0d1117)](./INDEX.md) [![Updated](https://img.shields.io/badge/updated-2026--07--02-264653?style=flat-square&labelColor=0d1117)](./INDEX.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-1B4332?style=flat-square&labelColor=0d1117)](./LICENSE) [![Systems](https://img.shields.io/badge/systems-4-2F5233?style=flat-square&labelColor=0d1117)](./INDEX.md) [![Updated](https://img.shields.io/badge/updated-2026--07--20-264653?style=flat-square&labelColor=0d1117)](./INDEX.md)
 
 > *What scales to population-level impact?*
 
@@ -23,9 +23,9 @@ Software, cloud, and AI engineering applied to population-scale civic and public
 
 ## Featured Systems
 
-- **[Cryptographic Supply Chain Tracker](./systems/cryptographic-supply-chain-tracker/)**: ECDSA-signed custody chain with independent anomaly detector and SLSA L1 in-toto attestations
-- **[Build a National EdTech Platform](./systems/national-edtech-platform/)**: 15-container federated LMS with Keycloak SSO, HLS streaming, and live Prometheus telemetry
-- **[Build a Real-Time Scam Detection API](./systems/realtime-scam-detection-api/)**: Feed-backed serverless URL detection, live SLO run naming the recall miss, human-gated takedowns
-
+- **[Build a Clinical-AI Gateway](./systems/clinical-ai-gateway/)**: Offline floor proven by response headers under a forced connectivity cut
+- **[Cryptographic Supply Chain Tracker](./systems/cryptographic-supply-chain-tracker/)**: KMS-signed custody chain with an ordering gate that rejects a skipped handoff
+- **[Build a National EdTech Platform](./systems/national-edtech-platform/)**: Fifteen-container stack with a live metrics pipeline and an honest cache-miss finding
+- **[Build a Real-Time Scam Detection API](./systems/realtime-scam-detection-api/)**: Live SLO validation that reports the recall miss instead of hiding it
 
 
