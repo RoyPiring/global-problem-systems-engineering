@@ -104,74 +104,74 @@ flowchart TD
 
     CareContinues[/Care Path Continues: Answer Served Either Way/]
 
-    GitHubRepo --> LinearPlan
-    LinearPlan --> ADRs
-    ADRs --> ImplPlan
+    GitHubRepo -- "tracked from design" --> LinearPlan
+    LinearPlan -- "ten tickets" --> ADRs
+    ADRs -- "contract, fallback, sovereignty, bars" --> ImplPlan
     ImplPlan -- "architecture before wiring" --> DockerCompose
 
-    DockerCompose --> LiteLLM
-    DockerCompose --> OllamaLocal
-    DockerCompose --> PresidioSvc
-    LiteLLM --> OpenAIEndpoint
-    ClinicalApp --> OpenAIEndpoint
-    TriageRequest --> OpenAIEndpoint
-    OpenAIEndpoint --> NoVendorBind
-    NoVendorBind --> ConfigSwap
+    DockerCompose -- "brings up the router" --> LiteLLM
+    DockerCompose -- "brings up the local floor" --> OllamaLocal
+    DockerCompose -- "brings up anonymization" --> PresidioSvc
+    LiteLLM -- "exposes" --> OpenAIEndpoint
+    ClinicalApp -- "calls one endpoint" --> OpenAIEndpoint
+    TriageRequest -- "clinical prompt" --> OpenAIEndpoint
+    OpenAIEndpoint -- "vendor stays behind the gateway" --> NoVendorBind
+    NoVendorBind -- "routing changes, contract does not" --> ConfigSwap
 
-    PatientData --> RedactPHI
+    PatientData -- "identifiers in the prompt" --> RedactPHI
     OpenAIEndpoint -- "before any model sees it" --> RedactPHI
-    PresidioSvc --> PresidioMask
-    RedactPHI --> PatIdMask
-    RedactPHI --> PresidioMask
-    PatIdMask --> CrossBorder
-    PresidioMask --> CrossBorder
+    PresidioSvc -- "detects named entities" --> PresidioMask
+    RedactPHI -- "custom ID pattern" --> PatIdMask
+    RedactPHI -- "anonymize entities" --> PresidioMask
+    PatIdMask -- "redacted text" --> CrossBorder
+    PresidioMask -- "redacted text" --> CrossBorder
     CrossBorder -- "regions disagree" --> RejectRequest
     CrossBorder -- "regions match" --> HealthCheck
 
     HealthCheck -- "cloud healthy" --> ClaudePrimary
-    ClaudePrimary -.-> CloudCreds
+    ClaudePrimary -. "route-back is credential-gated" .-> CloudCreds
     HealthCheck -- "connectivity cut" --> Unreachable
-    Unreachable --> FallbackHop
+    Unreachable -- "primary failed" --> FallbackHop
     CloudCreds -- "no usable key" --> FallbackHop
-    FallbackHop --> OllamaLocal
+    FallbackHop -- "serve locally" --> OllamaLocal
 
-    OllamaLocal --> HeaderBase
-    FallbackHop --> HeaderHops
-    HeaderBase --> Http200
-    HeaderHops --> Http200
+    OllamaLocal -- "proves the local route" --> HeaderBase
+    FallbackHop -- "proves one hop" --> HeaderHops
+    HeaderBase -- "evidence" --> Http200
+    HeaderHops -- "evidence" --> Http200
     Http200 -. "contract intact, no app change" .-> ConfigSwap
 
-    LangRouting --> LiteLLM
-    LangRouting --> FrenchPath
+    LangRouting -- "language-aware policy" --> LiteLLM
+    LangRouting -- "French in, French out" --> FrenchPath
 
-    TeamProgram --> MaxBudget
-    MaxBudget --> VirtualKey
-    VirtualKey -- "spend per program" --> LiteLLM
+    TeamProgram -- "one team per health program" --> MaxBudget
+    MaxBudget -- "scopes the key" --> VirtualKey
+    VirtualKey -- "spend logged per program" --> LiteLLM
     MaxBudget -- "cap reached" --> BudgetFallback
-    BudgetFallback --> OllamaLocal
+    BudgetFallback -- "zero marginal cost" --> OllamaLocal
 
     LiteLLM -- "scrapes" --> Prometheus
     VirtualKey -- "remaining_team_budget_metric" --> Prometheus
-    Prometheus --> Grafana
-    Grafana --> PerCapitaGauge
-    Http200 --> FiveBars
-    RejectRequest --> FiveBars
-    BudgetFallback --> FiveBars
-    FrenchPath --> FiveBars
+    Prometheus -- "feeds four panels" --> Grafana
+    Grafana -- "renders" --> PerCapitaGauge
+    Http200 -- "reach bar" --> FiveBars
+    RejectRequest -- "compliance bar" --> FiveBars
+    BudgetFallback -- "cost bar" --> FiveBars
+    FrenchPath -- "access bar" --> FiveBars
 
-    FiveBars --> Kubernetes
-    Kubernetes --> TerraformPkg
+    FiveBars -- "packaged for deployment" --> Kubernetes
+    Kubernetes -- "declared as code" --> TerraformPkg
 
-    PerCapitaGauge --> ImpactBrief
+    PerCapitaGauge -- "cost per program" --> ImpactBrief
     FiveBars -- "proof for non-technical readers" --> ImpactBrief
-    ImpactBrief --> AnnotatedDiagram
-    ImpactBrief --> TwoAudience
-    TwoAudience --> Funder
-    AnnotatedDiagram --> Funder
+    ImpactBrief -- "how money and data move" --> AnnotatedDiagram
+    ImpactBrief -- "what changed, what it cost" --> TwoAudience
+    TwoAudience -- "funding decision" --> Funder
+    AnnotatedDiagram -- "funding decision" --> Funder
 
-    ClaudePrimary --> CareContinues
-    OllamaLocal --> CareContinues
-    CareContinues --> ClinicalApp
+    ClaudePrimary -- "cloud answer" --> CareContinues
+    OllamaLocal -- "offline answer" --> CareContinues
+    CareContinues -- "same endpoint, either way" --> ClinicalApp
 
     class GitHubRepo,LinearPlan,ADRs,ImplPlan,PatIdMask,PresidioMask,HeaderBase,HeaderHops,TeamProgram,MaxBudget,Prometheus,PerCapitaGauge,AnnotatedDiagram datastore
     class DockerCompose,LiteLLM,OllamaLocal,PresidioSvc,OpenAIEndpoint,RedactPHI,ClaudePrimary,HealthCheck,LangRouting,FrenchPath,VirtualKey,Grafana,Kubernetes,TerraformPkg,ImpactBrief,TwoAudience service
