@@ -4,8 +4,10 @@ This portfolio repository was built from NextWork projects, created via NextWork
 
 **Original NextWork projects:**
 
+- Build a Clinical-AI Gateway
 - Cryptographic Supply Chain Tracker
 - Build a National EdTech Platform
+- Build a Real-Time Scam Detection API
 
 ## About NextWork
 
